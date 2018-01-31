@@ -1,0 +1,436 @@
+git init
+Initialized empty Git repository in /Users/vinsol/Documents/GIT ASSIGNMENTS/Assign1Redo/.git/
+touch file1
+touch file2
+touch file3
+touch file4
+touch file5
+git add .
+git commit -m "created 5 new file -
+> file1, file2, file3, file4, file5"
+[master (root-commit) 6906ebe] created 5 new file - file1, file2, file3, file4, file5
+ 5 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1
+ create mode 100644 file2
+ create mode 100644 file3a
+ create mode 100644 file4
+ create mode 100644 file5
+open -e file1
+open -e file2
+open -e file3
+open -e file4
+git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   file1
+	modified:   file2
+	modified:   file3
+	modified:   file4
+
+no changes added to commit (use "git add" and/or "git commit -a")
+git add .
+git commit -m "Add heading to 4 files -
+> file1, file2, file3, file4"
+[master 8d59b87] Add heading to 4 files - file1, file2, file3, file4
+ 4 files changed, 4 insertions(+)
+open -e file5
+git add .
+git commit -m "add heading to file 5 -
+> News Summary"
+[master efeb432] add heading to file 5 - News Summary
+ 1 file changed, 1 insertion(+)
+git rm file1
+rm 'file1'
+git rm --cached file5
+rm 'file5'
+git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	deleted:    file1
+	deleted:    file5
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	file5
+
+git add .
+git commit -m "delete file1 and ignore file5"
+[master b4f5614] delete file1 and ignore file5
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 file1
+open -e file2
+git add .
+git commit -m "Add 1 news to Sports news in file2"
+[master 6a72f73] Add 1 news to Sports news in file2
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+open -e file2
+git add .
+git diff
+git diff file2
+git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   file2
+
+git diff HEAD file2
+diff --git a/file2 b/file2
+index 8888c83..d9aa6ff 100644
+--- a/file2
++++ b/file2
+@@ -1,2 +1,3 @@
+ Sports news
+-1. India won World Cup
+\ No newline at end of file
++1. India won World Cup
++2. Federer won AO, 18
+\ No newline at end of file
+git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   file2
+
+git commit -m "add second news to file2"
+[master 4590501] add second news to file2
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+cat file2
+Sports news
+1. India won World Cup
+2. Federer won AO, 18open -e file2
+git checkout --file2
+error: unknown option `file2'
+usage: git checkout [<options>] <branch>
+   or: git checkout [<options>] [<branch>] -- <file>...
+
+    -q, --quiet           suppress progress reporting
+    -b <branch>           create and checkout a new branch
+    -B <branch>           create/reset and checkout a branch
+    -l                    create reflog for new branch
+    --detach              detach HEAD at named commit
+    -t, --track           set upstream info for new branch
+    --orphan <new-branch>
+                          new unparented branch
+    -2, --ours            checkout our version for unmerged files
+    -3, --theirs          checkout their version for unmerged files
+    -f, --force           force checkout (throw away local modifications)
+    -m, --merge           perform a 3-way merge with the new branch
+    --overwrite-ignore    update ignored files (default)
+    --conflict <style>    conflict style (merge or diff3)
+    -p, --patch           select hunks interactively
+    --ignore-skip-worktree-bits
+                          do not limit pathspecs to sparse entries only
+    --ignore-other-worktrees
+                          do not check if another worktree is holding the given ref
+    --recurse-submodules[=<checkout>]
+                          control recursive updating of submodules
+    --progress            force progress reporting
+
+git checkout file2
+cat file2
+Sports news
+1. India won World Cup
+2. Federer won AO, 18open -e file2
+git add .
+git reset file2
+Unstaged changes after reset:
+M	file2
+cat file2
+Sports news
+1. India won World Cup
+2. Federer won AO, 18
+3. England won ashes, 17git reset file2
+Unstaged changes after reset:
+M	file2
+git checkout file2
+cat file2
+Sports news
+1. India won World Cup
+2. Federer won AO, 18open -e file2
+cat file2
+Sports news
+1. India won World Cup
+2. Federer won AO, 18
+3. England won ashes, 17git add .
+git commit -m "Add a wrong news to file2"
+[master 52356c2] Add a wrong news to file2
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+git revert HEAD
+[master 6d9a51c] Revert "Add a wrong news to file2"
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+cat file2
+Sports news
+1. India won World Cup
+2. Federer won AO, 18git status
+On branch master
+nothing to commit, working tree clean
+open -e file3
+cat file3
+Finance News
+1. Budget 18-19 outgit status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   file3
+
+no changes added to commit (use "git add" and/or "git commit -a")
+git add .
+git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   file3
+
+git commit -m "Add one finance news in file3"
+[master 1372fc7] Add one finance news in file3
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+git status
+On branch master
+nothing to commit, working tree clean
+git log
+commit 1372fc7e139a73874fa4233ca9d19cbb153dc397 (HEAD -> master)
+Author: Sumit Raj <sumit@vinsol.com>
+Date:   Wed Jan 31 18:37:28 2018 +0530
+
+    Add one finance news in file3
+
+commit 6d9a51cbe2956f2dd90b03d5ec537d8ebbd2e125
+Author: Sumit Raj <sumit@vinsol.com>
+Date:   Wed Jan 31 18:34:12 2018 +0530
+
+    Revert "Add a wrong news to file2"
+    
+    This reverts commit 52356c2166ba23910575b1a92c3395b3da20a93d.
+
+commit 52356c2166ba23910575b1a92c3395b3da20a93d
+Author: Sumit Raj <sumit@vinsol.com>
+Date:   Wed Jan 31 18:33:10 2018 +0530
+
+    Add a wrong news to file2
+
+git show 6d9a51c
+commit 6d9a51cbe2956f2dd90b03d5ec537d8ebbd2e125
+Author: Sumit Raj <sumit@vinsol.com>
+Date:   Wed Jan 31 18:34:12 2018 +0530
+
+    Revert "Add a wrong news to file2"
+    
+    This reverts commit 52356c2166ba23910575b1a92c3395b3da20a93d.
+
+diff --git a/file2 b/file2
+index 60cc7bc..d9aa6ff 100644
+--- a/file2
++++ b/file2
+@@ -1,4 +1,3 @@
+ Sports news
+ 1. India won World Cup
+-2. Federer won AO, 18
+-3. England won ashes, 17
+\ No newline at end of file
++2. Federer won AO, 18
+\ No newline at end of file
+git branch feature1
+git branch feature2
+git branch -d feature2
+Deleted branch feature2 (was 1372fc7).
+git checkout feature1
+Switched to branch 'feature1'
+open -e file2
+open -e file2
+cat file2
+Sports news
+1. India won World Cup
+2. BD defeats SLgit add .
+git commit -m "change second news in file2"
+[feature1 3e472e8] change second news in file2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+open -e file3
+cat file3
+Finance News
+1. Budget 18-19 out
+2. Car prices go downgit add .
+git commit -m "add one news to file3"
+[feature1 dd5923c] add one news to file3
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+git checkout master
+Switched to branch 'master'
+open -e file2
+cat file2
+Sports news
+1. India won World Cup
+2. CSK to play IPL, 18git add.
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+	add
+git add .
+git commit -m "update second news in file2"
+[master d6de403] update second news in file2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+git branch
+  feature1
+* master
+git merge feature1
+Auto-merging file2
+CONFLICT (content): Merge conflict in file2
+Automatic merge failed; fix conflicts and then commit the result.
+open -e file2
+git add file2
+git commit -m "resolve conflict in file2 in second news by retaining both the news"
+[master e87d964] resolve conflict in file2 in second news by retaining both the news
+git branch feature2
+git checkout feature2
+Switched to branch 'feature2'
+open -e file2
+cat file2
+Sports news
+1. India won World Cup
+2. CSK to play IPL, 18
+3. BD defeats SL
+4. IPL, 18 auctions completedgit add .
+git commit -m "add one more news in file2"
+[feature2 17538d2] add one more news in file2
+ 1 file changed, 1 insertion(+)
+open -e file3
+cat file3
+Finance News
+1. Budget 18-19 out
+2. Petrol prices go downgit add .
+git commit -m "change second news in file3"
+[feature2 3c0b3f2] change second news in file3
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+git branch
+  feature1
+* feature2
+  master
+git checkout master
+Switched to branch 'master'
+open -e file3
+cat file3
+Finance News
+1. Budget 18-19 out
+2. Bitcoins to fallgit add .
+git commit -m "change second news in file3"
+[master 60aa69c] change second news in file3
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+git branch
+  feature1
+  feature2
+* master
+git checkout feature2
+Switched to branch 'feature2'
+git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: add one more news in file2
+Applying: change second news in file3
+Using index info to reconstruct a base tree...
+M	file3
+Falling back to patching base and 3-way merge...
+Auto-merging file3
+CONFLICT (content): Merge conflict in file3
+error: Failed to merge in the changes.
+Patch failed at 0002 change second news in file3
+The copy of the patch that failed is found in: .git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+open -e file3
+git rebase --continue
+file3: needs merge
+You must edit all merge conflicts and then
+mark them as resolved using git add
+git status
+rebase in progress; onto 60aa69c
+You are currently rebasing branch 'feature2' on '60aa69c'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git reset HEAD <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   file3
+
+no changes added to commit (use "git add" and/or "git commit -a")
+git add .
+git commit -m "recolve merge conflict in file3 by keep both the news"
+[detached HEAD 317a3b9] recolve merge conflict in file3 by keep both the news
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+git rebase --continue
+Applying: change second news in file3
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+open -e file4
+git add .
+git stash
+Saved working directory and index state WIP on (no branch): 317a3b9 recolve merge conflict in file3 by keep both the news
+cat file4
+Business Newsgit stash apply
+rebase in progress; onto 60aa69c
+You are currently rebasing branch 'feature2' on '60aa69c'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   file4
+
+no changes added to commit (use "git add" and/or "git commit -a")
+cat file4
+Business News
+1. Microsoft acquires linkedIngit remote/SUMIT5321/Assign1.gitthub.com 
+git branch
+* (no branch, rebasing feature2)
+  feature1
+  feature2
+  master
+git push master
+fatal: You are not currently on a branch.
+To push the history leading to the current (detached HEAD)
+state now, use
+
+    git push master HEAD:<name-of-remote-branch>
+
+git push origin master
+Counting objects: 42, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (34/34), done.
+Writing objects: 100% (42/42), 4.18 KiB | 856.00 KiB/s, done.
+Total 42 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), done.
+To https://github.com/SUMIT5321/Assign1.git
+ * [new branch]      master -> master
+git push origin feature1
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/SUMIT5321/Assign1.git
+ * [new branch]      feature1 -> feature1
+git push origin feature2
+Counting objects: 6, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 766 bytes | 766.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0)
+To https://github.com/SUMIT5321/Assign1.git
+ * [new branch]      feature2 -> feature2
+
